@@ -21,7 +21,8 @@ publisher_freq_lookup_lower = {k.strip().lower(): v for k, v in publisher_freq_l
 # Page title and short intro.
 st.set_page_config(page_title="Book Rating Predictor", page_icon="📚")
 st.title("📚 Book Rating Predictor")
-st.write("Enter some details about a book, and we'll predict its average rating.")
+st.write("Enter some details about a book, and we'll predict the average rating it would settle at once it reaches a similar number of ratings and reviews.")
+st.caption("Note: this estimates rating once a book has an established readership — it isn't meant to predict how a brand-new, unpublished manuscript will be received.")
 
 # Ask the user for the everyday details they'd actually know about a book.
 author = st.text_input("Author name", placeholder="e.g. Stephen King")
@@ -29,6 +30,7 @@ publisher = st.text_input("Publisher name", placeholder="e.g. Penguin Books")
 num_pages = st.number_input("Number of pages", min_value=1, max_value=5000, value=300)
 ratings_count = st.number_input("Number of ratings the book has received", min_value=0, value=100)
 text_reviews_count = st.number_input("Number of text reviews the book has received", min_value=0, value=20)
+st.caption("Tip: try a few different values here to see how a book's rating tends to stabilize as it gets more attention.")
 publication_year = st.number_input("Publication year", min_value=1500, max_value=2026, value=2010)
 language = st.selectbox("Language", ["English", "French", "German", "Spanish", "Japanese", "Others"])
 
